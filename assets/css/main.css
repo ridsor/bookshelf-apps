@@ -1,9 +1,8 @@
-html, body {
-    font-family: 'Roboto', Arial, sans-serif;
-}
-
 * {
     box-sizing: border-box;
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 14px;
+    /* border: 1px solid red !important; */
 }
 
 .input-book {
@@ -21,7 +20,7 @@ html, body {
 
     background-image: url(../img/img-input.jpg);
     background-size: cover;
-    background-position: -270px 0;
+    background-position: -300px 0;
 }
 
 .input-img-content h1 {
@@ -49,13 +48,16 @@ html, body {
     margin-bottom: 30px;
 }
 
-.add-book input {
+.text-shadow {
+    text-shadow: 0 1px 3px rgba(0,0,0,.1);
+}
+
+.add-book .input {
     display: block;
     width: 100%;
     border: 1px solid rgb(235, 235, 235);
 
     padding: 14px 20px;
-    font-size: 14px;
     border-radius: 5px;
     outline-color: rgb(50, 158, 94, .3);
     margin-bottom: 20px;
@@ -63,13 +65,84 @@ html, body {
 
 .add-book label {
     display: inline-block;
-    font-size: 14px;
     font-weight: bold;
+}
+
+.mb-10 {
     margin-bottom: 10px;
+}
+
+.add-book .container-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    row-gap: 20px;
+    column-gap: 40px;
+
+    margin-top: 40px;
+}
+
+.checkbox-container {
+    display: flex;
+}
+
+.checkbox-container label {
+    line-height: 1.5;
+}
+
+.selesai-dibaca {
+    width: 15px;
+    height: 15px;
+    margin-left: 10px;
+}
+
+.btn-container {
+    flex-basis: 300px;
+    display: flex;
+    justify-content: center;
+}
+
+.add-book .btn {
+    max-width: 150px;
+    width: 100%;
+    padding: 12px 10px;
+    box-sizing: content-box;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.submit {
+    margin-right: 25px;
+    background-color: #329e5e;
+    border: none;
+    color: #fff;
+}
+
+.submit:hover {
+    background-color: #198544;
+}
+
+.reset {
+    background-color: #fff;
+    color: #999999;
+    border: 1px solid rgb(235, 235, 235);
+}
+
+.reset:hover {
+    background-color: #329e5e;
+    color: #fff;
 }
 
 @media (max-width: 1024px) {
     .input-img-content {
         display: none;
+    }
+}
+
+@media (max-width: 700px) {
+    .btn-container {
+        flex-basis: 100%;
+        justify-content: space-between;
     }
 }
