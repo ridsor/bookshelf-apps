@@ -1,0 +1,75 @@
+html, body {
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.input-book {
+    display: flex;
+
+    width: 100vw;
+    height: 100vh;
+}
+
+.input-img-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: .3;
+
+    background-image: url(../img/img-input.jpg);
+    background-size: cover;
+    background-position: -270px 0;
+}
+
+.input-img-content h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 1px 5px rgba(0,0,0,.3), 0 0 20px #000;
+}
+
+.input-section {
+    flex-grow: 1.7;
+    display: flex;
+    justify-content: center;
+
+    padding: 50px;
+}
+
+.add-book {
+    flex-basis: 80%;
+}
+
+.add-book h2 {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.add-book input {
+    display: block;
+    width: 100%;
+    border: 1px solid rgb(235, 235, 235);
+
+    padding: 14px 20px;
+    font-size: 14px;
+    border-radius: 5px;
+    outline-color: rgb(50, 158, 94, .3);
+    margin-bottom: 20px;
+}
+
+.add-book label {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 1024px) {
+    .input-img-content {
+        display: none;
+    }
+}
