@@ -34,8 +34,7 @@
     flex-grow: 1.7;
     display: flex;
     justify-content: center;
-
-    padding: 50px;
+    align-items: center;
 }
 
 .add-book {
