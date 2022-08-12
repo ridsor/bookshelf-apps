@@ -1,58 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bookshelf Apps</title>
-    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/main.css" />
     <!-- CSS Reset -->
-    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/reset.css" />
     <!-- Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-
-</head>
-<body>
-    <main>
-        <div class="content">
-            <article class="input-book">
-                <div class="input-img-content">
-                    <h1>Bookshelf Apps</h1>
-                </div>
-                <section class="input-section">
-                    <form class="add-book" id="add-book">
-                        <h2 class="text-shadow">Masukan Buku Baru</h2>
-
-                        <label for="judul" class="mb-10 text-shadow">Judul</label>
-                        <input type="text" id="judul" class="input">
-                        <label for="penulis" class="mb-10 text-shadow">Penulis</label>
-                        <input type="text" id="penulis" class="input">
-                        <label for="tahun" class="mb-10 text-shadow">Tahun</label>
-                        <input type="number" id="tahun" class="input mb-20">
-
-                        <div class="container-input">
-                            <div class="checkbox-container">
-                                <label for="selesai-dibaca" class="text-shadow">Selesai dibaca</label>
-                                <input type="checkbox" id="selesai-dibaca" class="selesai-dibaca">
-                            </div>
-                            <div class="btn-container">
-                                <button type="submit" class="btn submit">SUBMIT</button>
-                                <button type="reset" class="btn reset">RESET</button>
-                            </div>
-                        </div>
-                    </form>
-                </section>
-
-                <article>
-
-                </article>
-            </article>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="content">
+      <article class="container-input" id="container-input">
+        <div class="input-img-content">
+          <h1>Bookshelf Apps</h1>
         </div>
-    </main>
+        <section class="input-section">
+          <form class="add-book" id="add-book">
+            <h2 class="text-shadow">Masukan Buku Baru</h2>
+
+            <label for="judul" class="mb-10 text-shadow">Judul</label>
+            <input type="text" id="judul" class="input" />
+            <label for="penulis" class="mb-10 text-shadow">Penulis</label>
+            <input type="text" id="penulis" class="input" />
+            <label for="tahun" class="mb-10 text-shadow">Tahun</label>
+            <input type="number" id="tahun" class="input mb-20" />
+
+            <div class="container">
+              <div class="checkbox-container">
+                <label for="selesai-dibaca" class="text-shadow">Selesai dibaca</label>
+                <input type="checkbox" id="selesai-dibaca" class="selesai-dibaca" />
+              </div>
+              <div class="btn-container">
+                <button type="submit" class="btn submit">SUBMIT</button>
+                <button type="reset" class="btn reset">RESET</button>
+              </div>
+            </div>
+          </form>
+        </section>
+      </article>
+      <article class="container-search" id="container-search">
+        <div class="container">
+          <h2 class="text-shadow">Cari Buku</h2>
+
+          <form class="search-book" id="sea"></form>
+          <div class="row">
+            <input type="search" id="keyword" placeholder="Search Judul.." class="keyword" />
+            <button type="submit" class="search">Search</button>
+          </div>
+        </div>
+      </article>
+    </div>
 
     <script src="assets/js/main.js"></script>
     <script src="assets/js/storage.js"></script>
-</body>
+  </body>
 </html>
