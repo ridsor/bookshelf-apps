@@ -26,11 +26,11 @@
             <h4 class="text-shadow">Masukan Buku Baru</h4>
 
             <label for="judul" class="mb-10 text-shadow">Judul</label>
-            <input type="text" id="judul" class="input" />
+            <input type="text" id="judul" class="input" required />
             <label for="penulis" class="mb-10 text-shadow">Penulis</label>
-            <input type="text" id="penulis" class="input" />
+            <input type="text" id="penulis" class="input" required />
             <label for="tahun" class="mb-10 text-shadow">Tahun</label>
-            <input type="number" id="tahun" class="input mb-20" />
+            <input type="number" id="tahun" class="input mb-20" required />
 
             <div class="container">
               <div class="checkbox-container">
@@ -58,27 +58,11 @@
       <article class="container-books">
         <div class="container">
           <p class="container-header">Belum selesai dibaca</p>
-          <div class="list-item" id="books">
-            <div class="container-book">
-              <h5 class="judul-book">Judul</h5>
-              <p>Penulis RYAN SYUKUR</p>
-              <p>Tahun 2004</p>
-              <button type="submit" class="btn selesai-dibaca"><i class="bi bi-check-circle"></i> Selesai dibaca</button>
-              <button type="submit" class="btn delete"><i class="bi bi-x-circle"></i> Hapus</button>
-            </div>
-          </div>
+          <div class="list-item" id="books"></div>
         </div>
         <div class="container">
           <p class="container-header">Selesai dibaca</p>
-          <div class="list-item" id="completed-books">
-            <div class="container-book">
-              <h5 class="judul-book">Judul</h5>
-              <p>Penulis RYAN SYUKUR</p>
-              <p>Tahun 2004</p>
-              <button type="submit" class="btn belum-selesai-dibaca"><i class="bi bi-info-circle"></i> Belum selesai dibaca</button>
-              <button type="submit" class="btn delete"><i class="bi bi-x-circle"></i> Hapus</button>
-            </div>
-          </div>
+          <div class="list-item" id="completed-books"></div>
         </div>
       </article>
     </div>

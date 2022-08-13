@@ -98,10 +98,12 @@
   line-height: 1.5;
 }
 
-.check-selesai-dibaca {
-  width: 15px;
-  height: 15px;
-  margin-left: 10px;
+.check-selesai-dibaca:focus,
+.check-selesai-dibaca:not([disabled]),
+.check-selesai-dibaca:checked,
+.check-selesai-dibaca:disabled {
+  color: #198544 !important;
+  color-scheme: #198544;
 }
 
 .container-input .btn-container {
@@ -250,6 +252,11 @@
   color: #fff;
   border: none;
   border-radius: 5px;
+}
+
+.selesai-dibaca,
+.belum-selesai-dibaca {
+  margin-right: 10px;
 }
 
 .container-books .selesai-dibaca {

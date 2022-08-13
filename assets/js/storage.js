@@ -1,19 +1,19 @@
-const STORAGE_KEY = 'STORAGE_KEY';
+const BOOKSHELF_APPS = 'BOOKSHELF_APPS';
 
 function isStorageExist() {
-  return typeof Storage !== undefined;
+  return typeof(Storage) !== undefined;
 }
 
 function showBook() {
   if (isStorageExist()) {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+    return JSON.parse(localStorage.getItem(BOOKSHELF_APPS)) || [];
   }
 
   return [];
 }
 
 function saveData() {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(books));
+  localStorage.setItem(BOOKSHELF_APPS, JSON.stringify(books));
 }
 
 function loadDataFromStorage() {
