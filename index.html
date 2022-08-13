@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="assets/css/main.css" />
     <!-- CSS Reset -->
     <link rel="stylesheet" href="assets/css/reset.css" />
+    <!-- Icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,7 +23,7 @@
         </div>
         <section class="input-section">
           <form class="add-book" id="add-book">
-            <h2 class="text-shadow">Masukan Buku Baru</h2>
+            <h4 class="text-shadow">Masukan Buku Baru</h4>
 
             <label for="judul" class="mb-10 text-shadow">Judul</label>
             <input type="text" id="judul" class="input" />
@@ -33,7 +35,7 @@
             <div class="container">
               <div class="checkbox-container">
                 <label for="selesai-dibaca" class="text-shadow">Selesai dibaca</label>
-                <input type="checkbox" id="selesai-dibaca" class="selesai-dibaca" />
+                <input type="checkbox" id="check-selesai-dibaca" class="selesai-dibaca" />
               </div>
               <div class="btn-container">
                 <button type="submit" class="btn submit">SUBMIT</button>
@@ -47,10 +49,35 @@
         <div class="container">
           <h2 class="text-shadow">Cari Buku</h2>
 
-          <form class="search-book" id="sea"></form>
-          <div class="row">
+          <form class="search-book" id="search-book">
             <input type="search" id="keyword" placeholder="Search Judul.." class="keyword" />
-            <button type="submit" class="search">Search</button>
+            <button type="submit" class="search"><i class="bi bi-search"></i></button>
+          </form>
+        </div>
+      </article>
+      <article class="container-books">
+        <div class="container">
+          <p class="container-header">Belum selesai dibaca</p>
+          <div class="list-item" id="books">
+            <div class="container-book">
+              <h5 class="judul-book">Judul</h5>
+              <p>Penulis RYAN SYUKUR</p>
+              <p>Tahun 2004</p>
+              <button type="submit" class="btn selesai-dibaca"><i class="bi bi-check-circle"></i> Selesai dibaca</button>
+              <button type="submit" class="btn delete"><i class="bi bi-x-circle"></i> Hapus</button>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <p class="container-header">Selesai dibaca</p>
+          <div class="list-item" id="completed-books">
+            <div class="container-book">
+              <h5 class="judul-book">Judul</h5>
+              <p>Penulis RYAN SYUKUR</p>
+              <p>Tahun 2004</p>
+              <button type="submit" class="btn belum-selesai-dibaca"><i class="bi bi-info-circle"></i> Belum selesai dibaca</button>
+              <button type="submit" class="btn delete"><i class="bi bi-x-circle"></i> Hapus</button>
+            </div>
           </div>
         </div>
       </article>

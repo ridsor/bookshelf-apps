@@ -2,12 +2,18 @@ var books = [];
 const RENDER_EVENT = 'RENDER_EVENT';
 
 window.addEventListener('DOMContentLoaded', function () {
-  const form = document.getElementById('add-book');
+  const formInput = document.getElementById('add-book');
+  const formSearch = document.getElementById('search-book');
   loadDataFromStorage();
 
-  form.addEventListener('submit', function (e) {
+  formInput.addEventListener('submit', function (e) {
     e.preventDefault();
     addBook();
+  });
+
+  formSearch.addEventListener('submit', function (e) {
+    e.preventDefault();
+    searchBook();
   });
 });
 
@@ -19,7 +25,7 @@ function addBook() {
   const judul = document.getElementById('judul').value;
   const penulis = document.getElementById('penulis').value;
   const tahun = document.getElementById('tahun').value;
-  const isCompleted = document.getElementById('selesai-dibaca').checked;
+  const isCompleted = document.getElementById('check-selesai-dibaca').checked;
   const id = genereteId();
 
   if (isBookExist()) {
