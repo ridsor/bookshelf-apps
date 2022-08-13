@@ -78,7 +78,9 @@ function makeBook(bookObject) {
       undoTaskFormBook(bookObject.id);
     });
     deleteButton.addEventListener('click', function () {
-      removeTaskFormBook(bookObject.id);
+      if (dialogRemove()) {
+        removeTaskFormBook(bookObject.id);
+      }
     });
 
     container.append(judul, penulis, tahun, undoButton, deleteButton);
