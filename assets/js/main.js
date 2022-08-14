@@ -119,7 +119,7 @@ function makeBook(bookObject) {
   }
 
   deleteButton.addEventListener('click', function () {
-    dialogRemove(bookObject.id);
+    dialogHapus(bookObject.id);
   });
 
   return container;
@@ -179,21 +179,44 @@ function findBook(id) {
   return null;
 }
 
-function dialogRemove(id) {
-  const confirm = document.getElementById('confirm');
-  confirm.style.display = 'inherit';
-  const exit = document.getElementById('exit');
-  const btnYes = document.getElementById('btnYes');
-  const btnNo = document.getElementById('btnNo');
+function dialogHapus(id) {
+  const content = document.getElementById('content');
+  const confirm = document.createElement('div');
+  confirm.classList.add('confirm');
+  const container = document.createElement('div');
+  container.classList.add('container');
+  const exitContainer = document.createElement('div');
+  exitContainer.classList.add('exit');
+  exitContainer.innerHTML = '<div class="brand">Bookshelf Apps</div>';
+  const exit = document.createElement('i');
+  exit.classList.add('bi', 'bi-x-circle');
+  const title = document.createElement('div');
+  title.classList.add('title');
+  title.innerText = 'Apakah anda yakin menghapusnya?';
+  const btnContainer = document.createElement('div');
+  btnContainer.classList.add('btn-container');
+  const btnYes = document.createElement('button');
+  btnYes.classList.add('btnYes');
+  btnYes.innerText = 'Yes';
+  const btnNo = document.createElement('button');
+  btnNo.classList.add('btnNo');
+  btnNo.innerText = 'No';
+  exitContainer.append(exit);
+  btnContainer.append(btnYes, btnNo);
+  container.append(exitContainer, title, btnContainer);
+  confirm.append(container);
+  content.append(confirm);
 
-  exit.addEventListener('click', function () {
-    confirm.style.display = 'none';
-  });
   btnYes.addEventListener('click', function () {
     removeTaskFormBook(id);
-    confirm.style.display = 'none';
+    content.removeChild(confirm);
   });
+
   btnNo.addEventListener('click', function () {
-    confirm.style.display = 'none';
+    content.removeChild(confirm);
+  });
+
+  exit.addEventListener('click', function () {
+    content.removeChild(confirm);
   });
 }
