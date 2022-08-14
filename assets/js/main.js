@@ -1,9 +1,9 @@
 var books = null;
 const RENDER_EVENT = 'RENDER_EVENT';
+const SEARCH_EVENT = 'SEARCH_EVENT';
 
 document.addEventListener('DOMContentLoaded', function () {
   const formInput = document.getElementById('add-book');
-  const formSearch = document.getElementById('search-book');
   loadDataFromStorage();
 
   formInput.addEventListener('submit', function (e) {
@@ -11,9 +11,11 @@ document.addEventListener('DOMContentLoaded', function () {
     addBook();
   });
 
-  formSearch.addEventListener('submit', function (e) {
-    e.preventDefault();
-    searchBook();
+  document.getElementById('keyword').addEventListener('keyup', function () {
+    document.dispatchEvent(new Event(SEARCH_EVENT));
+  });
+  document.getElementById('search').addEventListener('click', function () {
+    document.dispatchEvent(new Event(SEARCH_EVENT));
   });
 });
 
@@ -35,6 +37,29 @@ document.addEventListener(RENDER_EVENT, function () {
   }
 });
 
+document.addEventListener(SEARCH_EVENT, function () {
+  const keyword = document.getElementById('keyword');
+  const filter = keyword.value.toLowerCase();
+  const listItemBooks = document.getElementById('books');
+  const listItemBooksCompleted = document.getElementById('completed-books');
+  listItemBooksCompleted.innerHTML = '';
+  listItemBooks.innerHTML = '';
+
+  for (const book of books) {
+    if (book.isCompleted) {
+      if (book.judul.toLowerCase().indexOf(filter) > -1) {
+        const bookElement = makeBook(book);
+        listItemBooksCompleted.append(bookElement);
+      }
+    } else {
+      if (book.judul.toLowerCase().indexOf(filter) > -1) {
+        const bookElement = makeBook(book);
+        listItemBooks.append(bookElement);
+      }
+    }
+  }
+});
+
 function addBook() {
   const judul = document.getElementById('judul').value;
   const penulis = document.getElementById('penulis').value;
@@ -50,7 +75,7 @@ function addBook() {
     isCompleted: isCompleted,
   };
 
-  books.push(bookObject);
+  books.unshift(bookObject);
 
   document.dispatchEvent(new Event(RENDER_EVENT));
 }

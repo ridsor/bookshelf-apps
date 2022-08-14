@@ -2,7 +2,6 @@
   box-sizing: border-box;
   font-family: 'Roboto', Arial, sans-serif;
   font-size: 14px;
-  /* border: 1px solid red !important; */
 }
 
 .container-input {
@@ -98,14 +97,6 @@
   line-height: 1.5;
 }
 
-.check-selesai-dibaca:focus,
-.check-selesai-dibaca:not([disabled]),
-.check-selesai-dibaca:checked,
-.check-selesai-dibaca:disabled {
-  color: #198544 !important;
-  color-scheme: #198544;
-}
-
 .container-input .btn-container {
   flex-basis: 300px;
   display: flex;
@@ -199,7 +190,6 @@
   font-weight: bold;
   background-color: #f8f8f8;
   color: #030303;
-  transition: 0.3s;
 }
 
 .container-search .search:hover {
