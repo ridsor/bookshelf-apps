@@ -119,7 +119,22 @@ function makeBook(bookObject) {
   }
 
   deleteButton.addEventListener('click', function () {
-    dialogHapus(bookObject.id);
+    dialogConfirm();
+    const content = document.getElementById('content');
+    const confirm = document.getElementById('confirm');
+
+    document.getElementById('btnYes').addEventListener('click', function () {
+      removeTaskFormBook(bookObject.id);
+      content.removeChild(confirm);
+    });
+
+    document.getElementById('btnNo').addEventListener('click', function () {
+      content.removeChild(confirm);
+    });
+
+    document.getElementById('exit').addEventListener('click', function () {
+      content.removeChild(confirm);
+    });
   });
 
   return container;
@@ -179,44 +194,12 @@ function findBook(id) {
   return null;
 }
 
-function dialogHapus(id) {
+function dialogConfirm() {
   const content = document.getElementById('content');
   const confirm = document.createElement('div');
   confirm.classList.add('confirm');
-  const container = document.createElement('div');
-  container.classList.add('container');
-  const exitContainer = document.createElement('div');
-  exitContainer.classList.add('exit');
-  exitContainer.innerHTML = '<div class="brand">Bookshelf Apps</div>';
-  const exit = document.createElement('i');
-  exit.classList.add('bi', 'bi-x-circle');
-  const title = document.createElement('div');
-  title.classList.add('title');
-  title.innerText = 'Apakah anda yakin melakukannya?';
-  const btnContainer = document.createElement('div');
-  btnContainer.classList.add('btn-container');
-  const btnYes = document.createElement('button');
-  btnYes.classList.add('btnYes');
-  btnYes.innerText = 'Yes';
-  const btnNo = document.createElement('button');
-  btnNo.classList.add('btnNo');
-  btnNo.innerText = 'No';
-  exitContainer.append(exit);
-  btnContainer.append(btnYes, btnNo);
-  container.append(exitContainer, title, btnContainer);
-  confirm.append(container);
+  confirm.setAttribute('id', 'confirm');
+  confirm.innerHTML +=
+    '<div class="container"><div class="exit"><div class="brand">Bookshelf Apps</div><i class="bi bi-x-circle" id="exit"></i></div><div class="title">Apakah anda yakin melakukannya?</div><div class="btn-container"><button class="btnYes" id="btnYes">Yes</button><button class="btnNo" id="btnNo">No</button></div></div>';
   content.append(confirm);
-
-  btnYes.addEventListener('click', function () {
-    removeTaskFormBook(id);
-    content.removeChild(confirm);
-  });
-
-  btnNo.addEventListener('click', function () {
-    content.removeChild(confirm);
-  });
-
-  exit.addEventListener('click', function () {
-    content.removeChild(confirm);
-  });
 }
