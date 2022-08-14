@@ -192,7 +192,7 @@ function dialogHapus(id) {
   exit.classList.add('bi', 'bi-x-circle');
   const title = document.createElement('div');
   title.classList.add('title');
-  title.innerText = 'Apakah anda yakin menghapusnya?';
+  title.innerText = 'Apakah anda yakin melakukannya?';
   const btnContainer = document.createElement('div');
   btnContainer.classList.add('btn-container');
   const btnYes = document.createElement('button');
