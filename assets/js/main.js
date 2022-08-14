@@ -11,8 +11,10 @@ document.addEventListener('DOMContentLoaded', function () {
     addBook();
   });
 
-  document.getElementById('keyword').addEventListener('keyup', function () {
-    document.dispatchEvent(new Event(SEARCH_EVENT));
+  document.getElementById('keyword').addEventListener('keypress', function (e) {
+    if (e.which == 13) {
+      document.dispatchEvent(new Event(SEARCH_EVENT));
+    }
   });
   document.getElementById('search').addEventListener('click', function () {
     document.dispatchEvent(new Event(SEARCH_EVENT));
@@ -90,22 +92,17 @@ function makeBook(bookObject) {
   penulis.innerText = 'Penulis ' + bookObject.penulis;
   const tahun = document.createElement('p');
   tahun.innerText = 'Tahun ' + bookObject.tahun;
+  const deleteButton = document.createElement('button');
+  deleteButton.classList.add('btn', 'delete');
+  deleteButton.innerHTML = '<i class="bi bi-x-circle"></i> Hapus';
 
   if (bookObject.isCompleted) {
     const undoButton = document.createElement('button');
     undoButton.classList.add('btn', 'belum-selesai-dibaca');
     undoButton.innerHTML = '<i class="bi bi-info-circle"></i> Belum selesai dibaca';
-    const deleteButton = document.createElement('button');
-    deleteButton.classList.add('btn', 'delete');
-    deleteButton.innerHTML = '<i class="bi bi-x-circle"></i> Hapus';
 
     undoButton.addEventListener('click', function () {
       undoTaskFormBook(bookObject.id);
-    });
-    deleteButton.addEventListener('click', function () {
-      if (dialogRemove()) {
-        removeTaskFormBook(bookObject.id);
-      }
     });
 
     container.append(judul, penulis, tahun, undoButton, deleteButton);
@@ -113,21 +110,17 @@ function makeBook(bookObject) {
     const checkButton = document.createElement('button');
     checkButton.classList.add('btn', 'selesai-dibaca');
     checkButton.innerHTML = '<i class="bi bi-check-circle"></i> Selesai dibaca';
-    const deleteButton = document.createElement('button');
-    deleteButton.classList.add('btn', 'delete');
-    deleteButton.innerHTML = '<i class="bi bi-x-circle"></i> Hapus';
 
     checkButton.addEventListener('click', function () {
       addTaskFormBook(bookObject.id);
     });
-    deleteButton.addEventListener('click', function () {
-      if (dialogRemove()) {
-        removeTaskFormBook(bookObject.id);
-      }
-    });
 
     container.append(judul, penulis, tahun, checkButton, deleteButton);
   }
+
+  deleteButton.addEventListener('click', function () {
+    dialogRemove(bookObject.id);
+  });
 
   return container;
 }
@@ -186,6 +179,21 @@ function findBook(id) {
   return null;
 }
 
-function dialogRemove() {
-  return confirm('Anda yakin menghapus?');
+function dialogRemove(id) {
+  const confirm = document.getElementById('confirm');
+  confirm.style.display = 'inherit';
+  const exit = document.getElementById('exit');
+  const btnYes = document.getElementById('btnYes');
+  const btnNo = document.getElementById('btnNo');
+
+  exit.addEventListener('click', function () {
+    confirm.style.display = 'none';
+  });
+  btnYes.addEventListener('click', function () {
+    removeTaskFormBook(id);
+    confirm.style.display = 'none';
+  });
+  btnNo.addEventListener('click', function () {
+    confirm.style.display = 'none';
+  });
 }
