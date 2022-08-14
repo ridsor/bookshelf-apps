@@ -143,6 +143,11 @@
   color: #fff;
 }
 
+.submit,
+.reset {
+  cursor: pointer;
+}
+
 .container-search {
   width: 100%;
   padding: 40px 16px;
@@ -190,6 +195,7 @@
   font-weight: bold;
   background-color: #f8f8f8;
   color: #030303;
+  cursor: pointer;
 }
 
 .container-search .search:hover {
@@ -247,6 +253,12 @@
 .selesai-dibaca,
 .belum-selesai-dibaca {
   margin-right: 10px;
+}
+
+.selesai-dibaca,
+.belum-selesai-dibaca,
+.delete {
+  cursor: pointer;
 }
 
 .container-books .selesai-dibaca {
